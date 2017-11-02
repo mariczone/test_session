@@ -22,9 +22,13 @@ const sessionOptions = {
 }
 
 var redis = require('redis');
-var redisClient = redis.createClient(6379, 'docker.cdg.co.th');
+var redisClient = redis.createClient(6379, config.redis.host);
 redisClient.on('error', function (err) {
   console.log('Redis error: ' + err);
+});
+
+redisClient.on('connect', function () {
+  console.log('Redis connect: ' + config.redis.host);
 });
 
 //connect to session server
