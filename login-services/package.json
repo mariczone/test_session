@@ -1,0 +1,22 @@
+{
+  "name": "login-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "set NODE_ENV=dev && node server.js"
+  },
+  "keywords": [],
+  "author": "Onimuse",
+  "license": "",
+  "dependencies": {
+    "express": "~4.16.2",
+    "express-session": "~1.15.6",
+    "body-parser": "~1.18.2",
+    "redis": "~2.8.0",
+    "connect-redis": "~3.3.2",
+    "mongodb": "~2.2.33",
+    "jade": "~1.11.0",
+    "mongoose": "~4.12.5"
+  }
+}

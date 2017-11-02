@@ -1,0 +1,19 @@
+{
+  "name": "Session-Web-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "set NODE_ENV=dev && node server.js"
+  },
+  "keywords": [],
+  "author": "Onimuse",
+  "license": "",
+  "dependencies": {
+    "express": "~4.16.2",
+    "express-session": "~1.15.6",
+    "redis": "~2.8.0",
+    "connect-redis": "~3.3.2",
+    "ejs": "~2.5.6"
+  }
+}

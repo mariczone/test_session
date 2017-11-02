@@ -1,0 +1,45 @@
+version: '2'
+services:
+  users-service:
+    build: ./login-services
+    container_name: login_service
+    ports:
+     - "8090:8090"
+    links:
+     - mongodb
+     - redis
+    depends_on:
+     - mongodb
+     - redis
+    environment:
+     - DATABASE_URL=mongodb://mongodb:27018/test
+     - REDIS_HOST=redis
+  mongodb:
+    image: mongo:3.2.17-jessie
+    command: mongod --port 27018
+    container_name: "user-mongoDB"
+    expose:
+      - "27018"
+    ports:
+      - 27018:27018
+  redis:
+    image: redis:alpine
+    container_name: "micro-redis"
+  nginx:
+    build: ./reverse_proxy
+    container_name: "rs_proxy"
+    ports:
+      - 80:80
+  webapp:
+    build: ./webapp
+    container_name: webapp
+    ports:
+     - "8080:8080"
+    links:
+     - redis
+    depends_on:
+     - redis
+    environment:
+     - REDIS_HOST=redis
+
+
