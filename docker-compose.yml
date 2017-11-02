@@ -29,7 +29,7 @@ services:
     build: ./reverse_proxy
     container_name: "rs_proxy"
     extra_hosts:
-      - "docker.cdg.co.th:47.88.229.69"
+      - "docker.cdg.co.th:127.0.0.1"
     ports:
       - 80:80
   webapp:
