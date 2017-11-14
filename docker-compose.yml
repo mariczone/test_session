@@ -5,10 +5,10 @@ services:
     container_name: login_service
     ports:
      - "8090:8090"
-    links:
+    depends_on:
      - mongodb
      - redis
-    depends_on:
+    links:
      - mongodb
      - redis
     environment:
