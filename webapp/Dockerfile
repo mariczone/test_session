@@ -7,6 +7,9 @@ WORKDIR /usr/src/app
 # Bundle app source
 COPY . .
 
+ENV http_proxy http://10.254.7.89:8080
+ENV https_proxy http://10.254.7.89:8080
+
 # Install dependencies
 RUN npm install
 
